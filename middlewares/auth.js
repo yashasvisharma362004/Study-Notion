@@ -1,4 +1,0 @@
-//auth
-//isStudent
-//isInstructor
-//isAdmin 
