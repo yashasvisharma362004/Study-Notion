@@ -41,6 +41,11 @@ tag:{
     type:mongoose.Schema.Types.ObjectId,
     ref:"tag",
 },
+category: {
+		type: mongoose.Schema.Types.ObjectId,
+		// required: true,
+		ref: "Category",
+	},
 studentEnrolled:[{
     type:mongoose.Schema.Types.ObjectId,
     ref:"User",
