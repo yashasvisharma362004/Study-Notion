@@ -13,4 +13,5 @@ exports.connect = () =>{
         process.exit(1);
     })
 }
+module.exports = dbConnect;
 //Any part of your project that needs a database connection just imports this.
