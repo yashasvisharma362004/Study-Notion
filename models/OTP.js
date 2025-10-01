@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-
+const mailSender = require("../utils/mailSender");
+const emailTemplate = require("../mail/templates/emailVerificationTemplate");
 const OTPSchema = new mongoose.Schema({
     email:{
         type:String,
@@ -26,10 +27,17 @@ async function sendVerificationEmail(email,otp){
         throw error
     }
 }
-//below is my pre middleware
-OTPSchema.pre("save",async function(next){
-    await sendVerificationEmail(this.email,this.otp);
-    next();
-})
+// Define a post-save hook to send email after the document has been saved
+OTPSchema.pre("save", async function (next) {
+	console.log("New document saved to database");
 
-module.exports = mongoose.model("OTP",OTPSchema);
+	// Only send an email when a new document is created
+	if (this.isNew) {
+		await sendVerificationEmail(this.email, this.otp);
+	}
+	next();
+});
+
+const OTP = mongoose.model("OTP", OTPSchema);
+
+module.exports = OTP;

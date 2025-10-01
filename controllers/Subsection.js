@@ -1,7 +1,5 @@
 const Section = require("../models/Section");
-const subSection = require("../models/subSection");
-const subSection = require("../models/subSection");
-const SubSection = require("../models/subSection");
+const subSection = require("../models/SubSection");
 const { $where } = require("../models/tags");
 const {uploadImageToCloudinary} = require("../utils/imageUploader");
 
