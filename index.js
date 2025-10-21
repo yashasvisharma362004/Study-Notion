@@ -16,7 +16,7 @@ const cors = require("cors");
 const {cloudinaryConnect} = require("./config/cloudinary");
 const fileUpload = require("express-fileupload");
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT ;
 
 //database connection
 database();
@@ -43,10 +43,10 @@ app.use(fileUpload({
 cloudinaryConnect();
 
 //routes
-app.use("/api/v1/user",userRoutes);
+app.use("/api/v1/auth",userRoutes);
 app.use("/api/v1/course",courseRoutes);
-app.use("api/v1/profile",profileRoutes);
-app.use("api/v1/payment",paymentRoutes);
+app.use("/api/v1/profile",profileRoutes);
+app.use("/api/v1/payment",paymentRoutes);
 
 //def route
 app.get("/",(req,res)=>{
@@ -57,6 +57,6 @@ app.get("/",(req,res)=>{
     })
 })
 
-app.listen(PORT,()=>{
-    console.log(`Server is running on port ${PORT}`);
+app.listen(4000,()=>{
+    console.log(`Server is running on port 4000`);
 })

@@ -5,10 +5,11 @@ const router = express.Router()
 // Import the required controllers and middleware functions
 const {
   login,
-  signup,
-  sendotp,
+  signUp,
+  sendOTP,
   changePassword,
 } = require("../controllers/Auth");
+
 const {
   resetPasswordToken,
   resetPassword,
@@ -26,13 +27,13 @@ const { auth } = require("../middlewares/auth");
 router.post("/login", login)
 
 // Route for user signup
-router.post("/signup", signup)
+router.post("/signup", signUp)
 
 // Route for sending OTP to the user's email
-router.post("/sendotp", sendotp)
+router.post("/sendotp", sendOTP)
 
 // Route for Changing the password
-router.post("/changepassword", auth, changePassword)
+//router.post("/changepassword", auth, changePassword)
 
 // ********************************************************************************************************
 //                                      Reset Password

@@ -83,7 +83,7 @@ exports.verifyPayment = async(req,res)=>{
 };
 
 //send payment success email
-exports.sendPaymentSucessEmail = async (req,res)=>{
+exports.sendPaymentSuccessEmail = async (req,res)=>{
     const {orderId,paymentId,amount} = req.body;
     const userId = req.user.id;
 

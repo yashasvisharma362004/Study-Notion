@@ -7,7 +7,7 @@ const tagSchema = new mongoose.Schema({
         trim:true,
 },
     description:{
-        type:true,
+        type:String,
         required:true,
         trim:true,
 },

@@ -21,7 +21,7 @@ exports.createCategory = async (req, res) => {
 		});
 	} catch (error) {
 		return res.status(500).json({
-			success: true,
+			success: false,
 			message: error.message,
 		});
 	}
@@ -88,10 +88,9 @@ exports.categoryPageDetails = async (req, res) => {
       const categoriesExceptSelected = await Category.find({
         _id: { $ne: categoryId },
       })
-      let differentCategory = await Category.findOne(
-        categoriesExceptSelected[getRandomInt(categoriesExceptSelected.length)]
-          ._id
-      )
+      let randomCategoryId = categoriesExceptSelected[getRandomInt(categoriesExceptSelected.length)]._id;
+
+      let differentCategory = await Category.findById(randomCategoryId)
         .populate({
           path: "courses",
           match: { status: "Published" },

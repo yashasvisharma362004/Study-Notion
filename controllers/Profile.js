@@ -142,6 +142,7 @@ exports.updateDisplayPicture = async (req, res) => {
   }
 }
 
+
 exports.getEnrolledCourses = async (req, res) => {
   try {
     const userId = req.user.id
